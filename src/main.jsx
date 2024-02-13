@@ -6,7 +6,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './index.css'
 import Layout from './components/Layout'
 import NuevoCliente from './pages/NuevoCliente'
-import Index, {Loader as clientesLoader} from './pages/Index'
+import Index, {loader as clientesLoader} from './pages/Index' //asociar
 
 /*
 Con Outlet podemos crear un layout que compartan todas las paginas
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index />,
-        loader: clientesLoader
+        loader: clientesLoader //recuperar (confuso la verdad, o mas bien tedioso)
       },
       {
         path:'/clientes/nuevo',
