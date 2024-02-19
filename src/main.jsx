@@ -5,7 +5,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import './index.css'
 import Layout from './components/Layout'
-import NuevoCliente from './pages/NuevoCliente'
+import NuevoCliente, {action as nuevoClienteAction} from './pages/NuevoCliente'
 import Index, {loader as clientesLoader} from './pages/Index' //asociar
 
 /*
@@ -15,6 +15,12 @@ En el componente Layout tenemos el componente Outlet, esto le dice a Router-Dom
 tengo algo lo renderiza manteniendo el Layout general'
 
 Para tener algo en la pagina principal se crea un children con index: true
+
+Si quiero obtener datos necesito un loader
+Cuando quiero procesar un formulario action
+
+Utiliza Loaders para obtener datos de una API o de un objeto (similar a un state)
+Utiliza Actions para procesar la entrada de datos en un Form
 */
 
 const router = createBrowserRouter([
@@ -29,7 +35,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/clientes/nuevo',
-        element: <NuevoCliente />
+        element: <NuevoCliente/>,
+        action: nuevoClienteAction
       }
     ]
   }
